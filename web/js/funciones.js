@@ -68,7 +68,10 @@
                                     'info'
                                   )
             }  
-            
+            //function mensajeSWA() {
+            //        swal("Hello world!");
+            //}
+            function mensajeSWA(){swal("\x48\x65\x6C\x6C\x6F\x20\x77\x6F\x72\x6C\x64\x21")}  
             //Reservas
             function mensajereservaeliminada() {
                     const Toast = Swal.mixin({

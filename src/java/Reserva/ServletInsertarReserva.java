@@ -6,7 +6,6 @@
 package Reserva;
 
 import Config.ConexionMYSQL;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -38,7 +37,7 @@ public class ServletInsertarReserva extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
@@ -120,7 +119,7 @@ public class ServletInsertarReserva extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
@@ -138,7 +137,7 @@ public class ServletInsertarReserva extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
