@@ -40,9 +40,28 @@ public class ServletEditarReserva extends HttpServlet {
             
             //Edicion de Reserva
             //Leer todos los datos del modal y guardarlos en variables
-            String nombre= request.getParameter("ModalNombreCabana");
-            //int id= Integer.parseInt(request.getParameter("ModalIdReserva"));
-            int id= Integer.parseInt(request.getParameter("ModalIdReserva"));
+                int id= Integer.parseInt(request.getParameter("ModalIdReserva"));
+                String FechaClienteReserva= request.getParameter("FormFechaReserva");
+                String FechaRegistro= request.getParameter("FormFechaRegistro");
+                String FechaIngreso= request.getParameter("FormFechaIngreso");
+                String HoraIngreso= request.getParameter("FormHoraIngreso");
+                String FechaSalida= request.getParameter("FormFechaSalida");
+                String HoraSalida= request.getParameter("FormHoraSalida");
+                int NombreCabaña= Integer.parseInt(request.getParameter("FormNombreCabana"));
+                int NumeroPersona= Integer.parseInt(request.getParameter("FormNumeroPersona"));
+                int MV= Integer.parseInt(request.getParameter("FormMV"));
+                String NumeroReservaInterno= FechaIngreso+"/"+FechaSalida+"/"+NombreCabaña;
+                String NumeroReservaMV= request.getParameter("FormNumeroReservaMV");
+                String NombreCliente= request.getParameter("FormNombreCliente");
+                String CelularCliente= request.getParameter("FormCelularCliente");
+                int FormadePago= Integer.parseInt(request.getParameter("FormFormadePago"));
+                String FechaPago= request.getParameter("FormFechaPago");
+                Double Apagar = Double.parseDouble(request.getParameter("FormApagar"));
+                Double Pagado = Double.parseDouble(request.getParameter("FormPagado"));
+                Double Saldo = Double.parseDouble(request.getParameter("FormSaldo"));
+                String Configuracion= request.getParameter("FormConfiguracion");
+                String Solicitud= request.getParameter("FormSolicitud");
+                String EstadoReserva= request.getParameter("FormEstadoReserva");
             
              // Define la conexión
                 Connection cn = ConexionMYSQL.getConnection(); 
