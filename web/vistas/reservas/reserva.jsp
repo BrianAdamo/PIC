@@ -1,6 +1,5 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css.map">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+<link rel="stylesheet" href="css/sw2css.css">
+<script type="text/javascript" src="js/sw2js.js"></script>
 
 <div id="reserva" class="container">
      <form method="POST" name="formulario" id="formulario" class="needs-validation" novalidate >
@@ -10,7 +9,7 @@
      </form>
 </div>
 
-        <%
+                                       <%
                                        if(session.getAttribute("mensajeRetorno")!=null) {
                                        //if ( session.getAttribute("mensajeRetorno").equals("Registrado")){
                                            String msg = (String)session.getAttribute("mensajeRetorno");
@@ -34,12 +33,27 @@
                                             </script>
                                            
                                         <%
-                                        }if(msg.equals("Ya esta Registrado")){
+                                        }if(msg.equals("Eliminado")){
 
                                          %>
                                          
                                             <script>
-                                              swal("Registro encontrado!", "Esta Subcategoria ya se encuentra registrada", "warning");
+                                                        const Toast = Swal.mixin({
+                                                                                    toast: true,
+                                                                                    position: 'top-end',
+                                                                                    showConfirmButton: false,
+                                                                                    timer: 5000,
+                                                                                    timerProgressBar: true,
+                                                                                    onOpen: (toast) => {
+                                                                                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                                                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                                                    }
+                                                                                  })
+
+                                                                                  Toast.fire({
+                                                                                    icon: 'success',
+                                                                                    title: 'Reserva Eliminada'
+                                                                                  })
                                             </script>  
                                             <%
                                         }

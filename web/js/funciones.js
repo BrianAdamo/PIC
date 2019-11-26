@@ -121,11 +121,9 @@
                                 confirmButtonText: 'Si, Eliminar'
                               }).then((result) => {
                                 if (result.value) {
-                                  //document.formulario.action='ServletEliminarReserva';
-                                  //document.formulario.submit();   
-                                  setTimeout(IrAServletUsandoPost('ServletEliminarReserva'),5000);
-                                  setTimeout(mensajereservaeliminada(),5000);
-                                }
+                                  document.formulario.action='ServletEliminarReserva';
+                                  document.formulario.submit();                                   
+                              }
                               })
             }
             function EditarR(){

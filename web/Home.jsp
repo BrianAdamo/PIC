@@ -22,8 +22,6 @@
     <!-- SweetAlert 2 -->
     <link rel="stylesheet" href="css/sw2css.css">
      
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css.map">
     
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.css"/>
@@ -159,12 +157,8 @@
     <script type="text/javascript" src="js/funciones.js"></script>
     <!--<script type="text/javascript" src="js/calendario.js"></script> -->
     
-        <!-- SweetAlert -->
     <!-- SweetAlert 2-->
     <script type="text/javascript" src="js/sw2js.js"></script>
-    <!-- SweetAlert 1-->
-    <!-- SweetAlert -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
     
   </body>
 </html>
