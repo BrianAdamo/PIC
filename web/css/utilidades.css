@@ -1,0 +1,14 @@
+/* FONDO DE PAGINA */
+body {
+                    background-color:#98C0A8;
+                    background-attachment: fixed; 
+                    background-repeat: no-repeat; 
+                    background-size: cover;
+                    background-position: center center;                  
+}
+
+th,td {
+    text-align:center
+}.needs-validation {
+
+}
