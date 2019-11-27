@@ -16,12 +16,25 @@
                                         
                                            if(msg.equals("Ingresada")){
                                        %>
+                                        <script>
+                                            const Toast = Swal.mixin({
+                                                                                    toast: true,
+                                                                                    position: 'top-end',
+                                                                                    showConfirmButton: false,
+                                                                                    timer: 3000,
+                                                                                    timerProgressBar: true,
+                                                                                    onOpen: (toast) => {
+                                                                                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                                                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                                                    }
+                                                                                  })
+
+                                                                                  Toast.fire({
+                                                                                    icon: 'success',
+                                                                                    title: 'Reserva Registrada'
+                                                                                  })
                                         
-                                       <script LANGUAGE="javascript">
-                                                swal("Registro Exitoso!", "La Reserva fue registrada exitosamente", "success");
-                                                alert("Registro Exitoso!");
-                                        </script>  
-                                            
+                                        </script>   
                                         <%    
                                             }
                                             if(msg.equals("No Ingresada")){

@@ -47,7 +47,7 @@ public class ServletEditarReserva extends HttpServlet {
                 String HoraIngreso= request.getParameter("ModalHoraIngresoReserva");
                 String FechaSalida= request.getParameter("ModalFechaSalidaReserva");
                 String HoraSalida= request.getParameter("ModalHoraSalidaReserva");
-                int NombreCabaña= Integer.parseInt(request.getParameter("ModalNombreCabana"));
+                int NombreCabana= Integer.parseInt(request.getParameter("ModalNombreCabana"));
                 int NumeroPersona= Integer.parseInt(request.getParameter("ModalNumeroPersonas"));
                 int MV= Integer.parseInt(request.getParameter("ModalNombreMV"));
                 String NumeroReservaInterno= request.getParameter("ModalNroReservaInt");

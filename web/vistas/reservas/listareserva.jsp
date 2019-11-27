@@ -231,8 +231,7 @@
                      
                     <div class="modal-footer col-md-12" style="Color:#FFFFFF; Background-color: #343A40">
                         <div class="col-md-6">
-                        <button type="button" style="float: left;" class="btn btn-warning fa fa-pencil btnEditarReserva" onclick="mensaje()"> Editar</button>
-                        <button type="button" style="float: left;" class="btn btn-warning fa fa-pencil btnEditarReserva" onclick="mensajeSWA()"> SWA</button>
+                        <button type="button" style="float: left;" class="btn btn-warning fa fa-pencil btnEditarReserva" onclick="EditarR()"> Editar</button>
                         <!--<button type="button" style="float: left;" class="btn btn-danger fa fa-trash btnEliminarReserva" onclick="javascript:IrAServletUsandoPost('ServletEliminarReserva');"> Eliminar</button>-->
                         <button type="button" style="float: left;" class="btn btn-danger fa fa-trash btnEliminarReserva" onclick="EliminarR()"> Eliminar</button>
                         

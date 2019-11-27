@@ -68,17 +68,15 @@
                                     'info'
                                   )
             }  
-            //function mensajeSWA() {
-            //        swal("Hello world!");
-            //}
-            function mensajeSWA(){swal("\x48\x65\x6C\x6C\x6F\x20\x77\x6F\x72\x6C\x64\x21")}  
+ 
             //Reservas
             function mensajereservaeliminada() {
                     const Toast = Swal.mixin({
                                                 toast: true,
                                                 position: 'top-end',
+                                                background: '#FF6A5D',
                                                 showConfirmButton: false,
-                                                timer: 5000,
+                                                timer: 3000,
                                                 timerProgressBar: true,
                                                 onOpen: (toast) => {
                                                   toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -96,7 +94,7 @@
                                                 toast: true,
                                                 position: 'top-end',
                                                 showConfirmButton: false,
-                                                timer: 5000,
+                                                timer: 3000,
                                                 timerProgressBar: true,
                                                 onOpen: (toast) => {
                                                   toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -115,6 +113,7 @@
                                 title: 'Esta Seguro de eliminar la Reserva?',
                                 text: "Si elimina la reserva, no podra recuperar los datos",
                                 icon: 'warning',
+                                background: '#FFF',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
                                 cancelButtonColor: '#d33',
@@ -127,9 +126,8 @@
                               })
             }
             function EditarR(){
-                
-                    Swal.fire({
-                                title: '¿Esta Seguro de editar esta Reserva?',
+                            Swal.fire({
+                                title: 'Esta seguro de guardar los cambios de esta reserva?',
                                 text: "",
                                 icon: 'warning',
                                 showCancelButton: true,
@@ -138,10 +136,8 @@
                                 confirmButtonText: 'Si, editar'
                               }).then((result) => {
                                 if (result.value) {
-                                  //document.formulario.action='ServletEliminarReserva';
-                                  //document.formulario.submit();   
-                                  setTimeout(IrAServletUsandoPost('ServletEditarReserva'),5000);
-                                  setTimeout(mensajereservaeditada(),5000);
+                                  document.formulario.action='ServletEditarReserva';
+                                  document.formulario.submit();   
                                 }
                               })
             }

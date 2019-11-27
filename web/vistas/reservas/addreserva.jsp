@@ -244,8 +244,8 @@ function ingresoprueba() {
             <label for="LabelConfiguracion" class="control-label">Configuracion de la cabaña:</label>
                 <div class="controls">
                     <select name="FormConfiguracion" id="FormConfiguracion" class="input-sm form-control" >
-                        <option value="SinPreferencia">Sin Preferencia</option>
-                        <option value="1camakingy2individuales">1 cama king y 2 individuales</option>
+                        <option value="Sin Preferencia" selected="">Sin Preferencia</option>
+                        <option value="1 camakingy2individuales">1 cama king y 2 individuales</option>
                         <option value="1 camaking,2individualesyfuton">1 cama king, 2 individuales y futon</option>
                         <option value="2 camasking">2 camas king</option>
                         <option value="2 camaskingyfuton">2 camas king y futon</option>
@@ -394,28 +394,14 @@ function ingresoprueba() {
                             if(fechaclientereserva2 === "" || horaingreso2 === "" || horasalida2 === "" || nroreservamv2 === "" || celular2 === "" || fechapago2 === "" || saldo2 === "" || configuracioncabaña2 === "" || solicitudespecial2 === ""){
                                 swal("Error 2 Registro en blanco");
                             }else{
-                              setTimeout(IrAServletUsandoPost('ServletInsertarReserva'),5000);
+                              IrAServletUsandoPost('ServletInsertarReserva');
                             //document.formulario.action='ServletInsertarReserva';
-                            //document.formulario.submit();  
-                            Swal.fire({
-                                        position: 'top-end',
-                                        icon: 'success',
-                                        title: 'La reserva ha sido ingresada',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                      })
+                            //document.formulario.submit();
                             }
                         }else{
-                            setTimeout(IrAServletUsandoPost('ServletInsertarReserva'),5000);
+                            IrAServletUsandoPost('ServletInsertarReserva');
                             //document.formulario.action='ServletInsertarReserva';
                             //document.formulario.submit();  
-                            Swal.fire({
-                                        position: 'top-end',
-                                        icon: 'success',
-                                        title: 'La reserva ha sido ingresada',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                      })
                         }
                         
                         
