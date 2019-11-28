@@ -34,7 +34,7 @@ public class consultacabañas {
             while (rs.next())
             {
                 cabañas cab = new cabañas();
-                cab.setId_cabana(rs.getInt("id_cabana"));
+                cab.setId_cabana(rs.getInt("id_cab"));
                 cab.setNumero_cabana(rs.getInt("numero_cabana"));
                 cab.setNombre_cabana(rs.getString("nombre_cabana"));
                 cab.setEstado_cabana(rs.getString("estado_cabana"));

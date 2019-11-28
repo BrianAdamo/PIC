@@ -1,9 +1,16 @@
+<%@page import="Cabañas.consultacabañas"%>
+<%@page import="Cabañas.cabañas"%>
+<%@page import="MedioVenta.Consultamedioventa"%>
+<%@page import="MedioVenta.medioventa"%>
+<%@page import="FormadePago.Consultaformadepago"%>
+<%@page import="FormadePago.formadepago"%>
 <%@page import= "java.sql.*"%>
 <%@ page language="java" %>
 <%@page import= "Reserva.reserva"%>
 <%@ page import = "Reserva.ConsultaReserva"%> 
 <%@ page import = "java.util.LinkedList"%>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
 <!-- Table que se puede filtrar y ordenar -->
 <div class="table-responsive">
@@ -55,6 +62,7 @@
                     <tr>  
                             <th hidden>ID</th>
                             <th hidden>NUMERO RESERVA INTERNA</th>
+                            <th hidden>ID MEDIO DE VENTA</th>
                             <th hidden>MEDIO DE VENTA</th>
                             <th hidden>NUMERO RESERVA MV</th>
                             <th hidden>ACCIONES</th>
@@ -64,6 +72,7 @@
                             <th hidden>hora_ingreso</th>
                             <th hidden>fecha_salida</th>
                             <th hidden>hora_salida</th>
+                            <th hidden>id_cabana</th>
                             <th hidden>nombre_cabana</th>
                             <th hidden>cantidad_personas</th>
                             <th hidden>numero_reserva_interno</th>
@@ -71,6 +80,7 @@
                             <th hidden>numero_reserva_mv</th>
                             <th hidden>nombre_cliente</th>
                             <th hidden>celular_cliente</th>
+                            <th hidden>id_forma_pago</th>
                             <th hidden>nombre_fp</th>
                             <th hidden>fecha_pago</th>
                             <th hidden>total_a_pagar</th>
@@ -90,11 +100,12 @@
                             out.println("<tr>");
                             out.println("<td hidden><span id=\"Id_reserva"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getId_reserva()+"</span></td>");
                             out.println("<td hidden><span id=\"numero_reserva_interno"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getNumero_reserva_interno()+"</span></td>");
+                            out.println("<td hidden><span id=\"id_mv"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getId_medio_venta()+"</span></td>");
                             out.println("<td hidden><span id=\"nombre_mv"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getMediodeventa()+"</span></td>");
                             out.println("<td hidden><span id=\"numero_reserva_mv"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getNumero_reserva_mv()+"</span></td>");
                             
                             out.println("<td hidden>"
-                                             + "<button data-id="+listares.get(i).getId_reserva()+ " type=\"button\" class=\"btn btn-primary btn-sm btnVerReserva\"><i class=\"fa fa-eye\" style=\"color:white;\" aria-hidden=\"true\"></i> Edicion</button>"
+                                             + "<button data-id="+listares.get(i).getId_reserva()+ " type=\"button\" class=\"btn btn-primary btn-sm btnVerReserva\" onclick=\"buscarSelect();\"><i class=\"fa fa-eye\" style=\"color:white;\" aria-hidden=\"true\"></i> Edicion</button>"
                                              + ""
                                        +"</td>");
                             out.println("<td hidden><span id=\"cliente_reserva"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getCliente_reserva()+"</span></td>");
@@ -103,10 +114,12 @@
                             out.println("<td hidden><span id=\"hora_ingreso"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getHora_ingreso()+"</span></td>");
                             out.println("<td hidden><span id=\"fecha_salida"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getFecha_Salida()+"</span></td>");
                             out.println("<td hidden><span id=\"hora_salida"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getHora_Salida()+"</span></td>");
+                            out.println("<td hidden><span id=\"id_cabana"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getId_cabana()+"</span></td>");
                             out.println("<td hidden><span id=\"nombre_cabana"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getCabana()+"</span></td>");
                             out.println("<td hidden><span id=\"cantidad_personas"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getCantidad_persona()+"</span></td>");
                             out.println("<td hidden><span id=\"nombre_cliente"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getNombre_cliente()+"</span></td>");
                             out.println("<td hidden><span id=\"celular_cliente"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getCelular_cliente()+"</span></td>");
+                            out.println("<td hidden><span id=\"id_forma_pago"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getId_forma_pago()+"</span></td>");
                             out.println("<td hidden><span id=\"nombre_fp"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getFormadepago()+"</span></td>");
                             out.println("<td hidden><span id=\"fecha_pago"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getFecha_pago()+"</span></td>");
                             out.println("<td hidden><span id=\"total_a_pagar"+listares.get(i).getId_reserva()+"\">"+listares.get(i).getTotal_a_pagar()+"</span></td>");
@@ -140,7 +153,7 @@
                         <table>
                         <tr>
                             <td><span class="text" type="text">Id Reserva: </span></td>
-                            <td><input type="text" class="form-control" id="ModalIdReserva" name="ModalIdReserva" ></td>
+                            <td><input type="text" class="form-control" id="ModalIdReserva" name="ModalIdReserva" readonly></td>
                         </tr>
                         <tr>
                             <td><span class="text" type="text">Fecha Registro: </span></td>
@@ -166,10 +179,58 @@
                             <td><span class="text" type="text">Hora Salida </span></td>
                             <td><input type="text" class="form-control" id="ModalHoraSalidaReserva" name="ModalHoraSalidaReserva" ></td>
                         </tr>
+                        
                         <tr>
-                            <td><span class="text" type="text">Nombre Cabaña: </span></td>
-                            <td><input type="text" class="form-control" id="ModalNombreCabana" name="ModalNombreCabana" ></td>
-                        </tr> 
+                            <td><span class="text col-md-6" type="text">Nombre Cabaña: </span></td>
+                            <td>
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" id="ModalidNombreCabana" name="ModalidNombreCabana" hidden >
+                                            <input type="text" class="form-control" id="ModalNombreCabana" name="ModalNombreCabana" readonly >
+                                            <select name="ModalNombreCabanaNew" id="ModalNombreCabanaNew" class="input-sm form-control" hidden>
+                                                <%                        
+                                                LinkedList<cabañas> listarcabañamodal = consultacabañas.getcabañas();
+                                                for (int i=0;i<listarcabañamodal.size();i++)
+                                                { 
+                                                %>
+                                                <option value="<%= listarcabañamodal.get(i).getId_cabana()%>"><%= listarcabañamodal.get(i).getNombre_cabana()%></option>
+                                                <% } %>
+                                            </select>
+                                            <span class="input-group-addon"></span>
+                                            <button type="button"  class="btn btn-warning fa fa-pencil" onclick="quitarHiddenMNC('ModalNombreCabanaNew')" ></button>
+                                          </div>
+                            </td>
+                        </tr>
+                        <script>
+    
+                            //NOMBRE CABAÑA
+                            function quitarHiddenMNC(id){
+
+                                            // Ponemos el atributo de solo lectura
+                                            $("#ModalNombreCabana").attr("hidden","hidden");
+                                            // Ponemos una clase para cambiar el color del texto y mostrar que
+                                            // esta deshabilitado
+                                            $("#ModalNombreCabana").addClass("hidden");
+
+
+                                            // Eliminamos el atributo de solo lectura
+                                            $("#"+id).removeAttr("hidden");
+                                            // Eliminamos la clase que hace que cambie el color
+                                            $("#"+id).removeClass("hidden");
+
+
+                            }
+
+                            $(document).ready(function(){
+                                    $("#ModalNombreCabanaNew").change(function(){
+                                        $('#ModalidNombreCabana').val($(this).val());
+                                    });
+                            });
+                            
+                            
+                            
+                            //NOMBRE CABAÑA
+
+                        </script>
                         <tr>
                             <td><span class="text" type="text">Cantidad Personas: </span></td>
                             <td><input type="text" class="form-control" id="ModalNumeroPersonas" name="ModalNumeroPersonas" ></td>
@@ -180,8 +241,52 @@
                         </tr>
                         <tr>
                             <td><span class="text" type="text">Medio de Venta: </span></td>
-                            <td><input type="text" class="form-control" id="ModalNombreMV" name="ModalNombreMV" ></td>
+                            <td>
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" id="ModalIdMV" name="ModalIdMV" hidden >  
+                                            <input type="text" class="form-control" id="ModalNombreMV" name="ModalNombreMV" readonly >
+                                            <select class="input-sm  form-control" name="ModalNombreMVNew"  id="ModalNombreMVNew"  hidden>
+                                                <%                        
+                                                LinkedList<medioventa> listaSelectMvModal = Consultamedioventa.getmedioventa();
+                                                for (int i=0;i<listaSelectMvModal.size();i++)
+                                                { 
+                                                %>
+                                                <option value="<%= listaSelectMvModal.get(i).getId_mv()%>"><%= listaSelectMvModal.get(i).getNombre_mv()%></option>
+                                                <% } %>
+                                            </select>
+                                            <span class="input-group-addon"></span>
+                                            <button type="button"  class="btn btn-warning fa fa-pencil" onclick="quitarHiddenMMV('ModalNombreMVNew')" ></button>
+                                          </div>
+                            </td>
                         </tr>
+                        <script>
+    
+                            //MEDIO VENTA
+                            function quitarHiddenMMV(id){
+
+                                            // Ponemos el atributo de solo lectura
+                                            $("#ModalNombreMV").attr("hidden","hidden");
+                                            // Ponemos una clase para cambiar el color del texto y mostrar que
+                                            // esta deshabilitado
+                                            $("#ModalNombreMV").addClass("hidden");
+
+
+                                            // Eliminamos el atributo de solo lectura
+                                            $("#"+id).removeAttr("hidden");
+                                            // Eliminamos la clase que hace que cambie el color
+                                            $("#"+id).removeClass("hidden");
+
+
+                            }
+
+                            $(document).ready(function(){
+                                    $("#ModalNombreMVNew").change(function(){
+                                        $('#ModalIdMV').val($(this).val());
+                                    });
+                            });
+                            //MEDIO VENTA
+
+                        </script>
                         <tr>
                             <td><span class="text" type="text">Numero Reserva Medio de Venta: </span></td>
                             <td><input type="text" class="form-control" id="ModalNroReservaMV" name="ModalNroReservaMV" ></td>
@@ -196,8 +301,52 @@
                         </tr>
                         <tr>
                             <td><span class="text" type="text">Forma de Pago: </span></td>
-                            <td><input type="text" class="form-control" id="ModalNombreFP" name="ModalNombreFP" ></td>
+                             <td>
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" id="ModalNombreidFP" name="ModalNombreidFP" hidden >  
+                                            <input type="text" class="form-control" id="ModalNombreFP" name="ModalNombreFP" readonly >
+                                            <select name="ModalNombreFPNew" id="ModalNombreFPNew" class="input-sm form-control" hidden>
+                                                <%                        
+                                                LinkedList<formadepago> listarfpmodal = Consultaformadepago.getformadepago();
+                                                for (int i=0;i<listarfpmodal.size();i++)
+                                                { 
+                                                %>
+                                                <option value="<%= listarfpmodal.get(i).getId_fp()%>"><%= listarfpmodal.get(i).getNombre_fp()%></option>
+                                                <% } %>
+                                            </select>
+                                            <span class="input-group-addon"></span>
+                                            <button type="button"  class="btn btn-warning fa fa-pencil" onclick="quitarHiddenMFP('ModalNombreFPNew')" ></button>
+                                          </div>
+                            </td>
                         </tr>
+                        <script>
+    
+                            //MEDIO VENTA
+                            function quitarHiddenMFP(id){
+
+                                            // Ponemos el atributo de solo lectura
+                                            $("#ModalNombreFP").attr("hidden","hidden");
+                                            // Ponemos una clase para cambiar el color del texto y mostrar que
+                                            // esta deshabilitado
+                                            $("#ModalNombreFP").addClass("hidden");
+
+
+                                            // Eliminamos el atributo de solo lectura
+                                            $("#"+id).removeAttr("hidden");
+                                            // Eliminamos la clase que hace que cambie el color
+                                            $("#"+id).removeClass("hidden");
+
+
+                            }
+
+                            $(document).ready(function(){
+                                    $("#ModalNombreFPNew").change(function(){
+                                        $('#ModalNombreidFP').val($(this).val());
+                                    });
+                            });
+                            //MEDIO VENTA
+
+                        </script>
                         <tr>
                             <td><span class="text" type="text">Fecha de Pago: </span></td>
                             <td><input type="text" class="form-control" id="ModalFechaPago" name="ModalFechaPago" ></td>
@@ -216,7 +365,17 @@
                         </tr>
                         <tr>
                             <td><span class="text" type="text">Configuracion Cabaña: </span></td>
-                            <td><input type="text" class="form-control" id="ModalConfiguracionCabana" name="ModalConfiguracionCabana" ></td>
+                            <td>
+                                <select name="ModalConfiguracionCabana" id="ModalConfiguracionCabana" class="input-sm form-control" >
+                                    <option value="Sin Preferencia">Sin Preferencia</option>
+                                    <option value="1 cama king y 2 individuales">1 cama king y 2 individuales</option>
+                                    <option value="1 cama king,2 individuales y futon">1 cama king, 2 individuales y futon</option>
+                                    <option value="2 camas king">2 camas king</option>
+                                    <option value="2 camas king y futon">2 camas king y futon</option>
+                                    <option value="1 cama king">1 cama king</option>
+                                    <option value="2 camas individuales">2 camas individuales</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td><span class="text" type="text">Solicitud Especial Cabaña: </span></td>
@@ -224,7 +383,14 @@
                         </tr>
                         <tr>
                             <td><span class="text" type="text">Estado Reserva: </span></td>
-                            <td><input type="text" class="form-control" id="ModalEstadoReserva" name="ModalEstadoReserva" ></td>
+                            <td>
+                                <select name="ModalEstadoReserva" id="ModalEstadoReserva" class="input-sm form-control">
+                                    <option value="Sin Estado">Sin Estado</option>
+                                    <option value="Reservada">Reservada</option>
+                                    <option value="Confirmada">Confirmada</option>
+                                    <option value="Cancelada(Anulada)">Cancelada(Anulada)</option>
+                                </select>
+                            </td>
                         </tr>
                         </table>     
                     </div>
@@ -251,4 +417,5 @@
 <!-- Modal Delete Close -->                        
 <!-- Table y Boton de Edicion Completos + Modal Delete,Edit -->
  
+
 

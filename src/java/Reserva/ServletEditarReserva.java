@@ -47,14 +47,14 @@ public class ServletEditarReserva extends HttpServlet {
                 String HoraIngreso= request.getParameter("ModalHoraIngresoReserva");
                 String FechaSalida= request.getParameter("ModalFechaSalidaReserva");
                 String HoraSalida= request.getParameter("ModalHoraSalidaReserva");
-                int NombreCabana= Integer.parseInt(request.getParameter("ModalNombreCabana"));
+                int NombreCabana= Integer.parseInt(request.getParameter("ModalidNombreCabana"));
                 int NumeroPersona= Integer.parseInt(request.getParameter("ModalNumeroPersonas"));
-                int MV= Integer.parseInt(request.getParameter("ModalNombreMV"));
+                int MV= Integer.parseInt(request.getParameter("ModalIdMV"));
                 String NumeroReservaInterno= request.getParameter("ModalNroReservaInt");
                 String NumeroReservaMV= request.getParameter("ModalNroReservaMV");
                 String NombreCliente= request.getParameter("ModalNombreCliente");
                 String CelularCliente= request.getParameter("ModalCelularCliente");
-                int FormadePago= Integer.parseInt(request.getParameter("ModalNombreFP"));
+                int FormadePago= Integer.parseInt(request.getParameter("ModalNombreidFP"));
                 String FechaPago= request.getParameter("ModalFechaPago");
                 Double Apagar = Double.parseDouble(request.getParameter("ModalTotalAPagar"));
                 Double Pagado = Double.parseDouble(request.getParameter("ModalTotalPagado"));
@@ -66,16 +66,38 @@ public class ServletEditarReserva extends HttpServlet {
              // Define la conexión
                 Connection cn = ConexionMYSQL.getConnection(); 
                 // Llamada al procedimiento almacenado
-                CallableStatement cst = cn.prepareCall("{CALL EliminarReserva (?,?)}");
+                CallableStatement cst = cn.prepareCall("{CALL EditarReserva (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
                 // Parametro 1 del procedimiento almacenado
                 cst.setInt(1, id);
+                cst.setString(2, FechaRegistro);
+                cst.setString(3, FechaIngreso);
+                cst.setString(4, HoraIngreso);
+                cst.setString(5, FechaSalida);
+                cst.setString(6, HoraSalida);
+                cst.setInt(7, NombreCabana);
+                cst.setInt(8, NumeroPersona);
+                cst.setString(9, NumeroReservaInterno);
+                cst.setInt(10, MV);
+                cst.setString(11, NumeroReservaMV);
+                cst.setString(12, NombreCliente);
+                cst.setString(13, CelularCliente);
+                cst.setInt(14, FormadePago);
+                cst.setString(15, FechaPago); 
+                cst.setDouble(16, Apagar);
+                cst.setDouble(17, Pagado);
+                cst.setDouble(18, Saldo);
+                cst.setString(19, Configuracion);
+                cst.setString(20, Solicitud);
+                cst.setString(21, FechaClienteReserva);
+                cst.setString(22, EstadoReserva);
+                
                 // Definimos los tipos de los parametros de salida del procedimiento almacenado
-                cst.registerOutParameter(2, java.sql.Types.VARCHAR);
+                cst.registerOutParameter(23, java.sql.Types.VARCHAR);
                 
                 cst.execute();
                 // Se obtienen la salida del procedimineto almacenado
-                String mensajeRetorno = cst.getString(2);
-                
+                String mensajeRetorno = cst.getString(23);
+            
                 //seteo valor parametro obtenido del procedure
                 request.getSession().setAttribute("mensajeRetorno",mensajeRetorno);
                 

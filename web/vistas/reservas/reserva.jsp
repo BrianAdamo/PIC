@@ -16,7 +16,7 @@
                                         
                                            if(msg.equals("Ingresada")){
                                        %>
-                                        <script>
+                                            <script>
                                             const Toast = Swal.mixin({
                                                                                     toast: true,
                                                                                     position: 'top-end',
@@ -38,18 +38,15 @@
                                         <%    
                                             }
                                             if(msg.equals("No Ingresada")){
-                                        %>
-                                       
+                                        %>                                     
                                             <script>
                                                 swal("No Registrada!", "La Reserva no se pudo registrar", "error");
                                                 //alert("Registro Exitoso!");
                                             </script>
-                                           
                                         <%
                                         }if(msg.equals("Eliminado")){
 
-                                         %>
-                                         
+                                         %>                                        
                                             <script>
                                                         const Toast = Swal.mixin({
                                                                                     toast: true,
@@ -66,6 +63,28 @@
                                                                                   Toast.fire({
                                                                                     icon: 'success',
                                                                                     title: 'Reserva Eliminada'
+                                                                                  })
+                                            </script>  
+                                            <%
+                                        }if(msg.equals("Editada")){
+
+                                         %>                                        
+                                            <script>
+                                                        const Toast = Swal.mixin({
+                                                                                    toast: true,
+                                                                                    position: 'top-end',
+                                                                                    showConfirmButton: false,
+                                                                                    timer: 5000,
+                                                                                    timerProgressBar: true,
+                                                                                    onOpen: (toast) => {
+                                                                                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                                                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                                                    }
+                                                                                  })
+
+                                                                                  Toast.fire({
+                                                                                    icon: 'success',
+                                                                                    title: 'Reserva Editada'
                                                                                   })
                                             </script>  
                                             <%

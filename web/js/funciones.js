@@ -143,7 +143,7 @@
             }
             //Reservas
             
-            //Funcion para restar y mostrar el saldo del pago
+            //Funcion para restar y mostrar el saldo del pago   
             $(document).ready(function(){
   
                 function Restar(){
@@ -237,13 +237,16 @@
                         var hora_ingreso=$('#hora_ingreso'+id).text();
                         var fecha_salida=$('#fecha_salida'+id).text();
                         var hora_salida=$('#hora_salida'+id).text();
+                        var id_cabana=$('#id_cabana'+id).text();
                         var nombre_cabana=$('#nombre_cabana'+id).text();
                         var cantidad_personas=$('#cantidad_personas'+id).text();
                         var numero_reserva_interno=$('#numero_reserva_interno'+id).text();
+                        var id_mv=$('#id_mv'+id).text();
                         var nombre_mv=$('#nombre_mv'+id).text();
                         var numero_reserva_mv=$('#numero_reserva_mv'+id).text();
                         var nombre_cliente=$('#nombre_cliente'+id).text();
                         var celular_cliente=$('#celular_cliente'+id).text();
+                        var id_fp=$('#id_forma_pago'+id).text();
                         var nombre_fp=$('#nombre_fp'+id).text();
                         var fecha_pago=$('#fecha_pago'+id).text();
                         var total_a_pagar=$('#total_a_pagar'+id).text();
@@ -262,13 +265,16 @@
                         $('#ModalHoraIngresoReserva').val(hora_ingreso);
                         $('#ModalFechaSalidaReserva').val(fecha_salida);
                         $('#ModalHoraSalidaReserva').val(hora_salida);
+                        $('#ModalidNombreCabana').val(id_cabana);
                         $('#ModalNombreCabana').val(nombre_cabana);
                         $('#ModalNumeroPersonas').val(cantidad_personas);
                         $('#ModalNroReservaInt').val(numero_reserva_interno);
+                        $('#ModalIdMV').val(id_mv);
                         $('#ModalNombreMV').val(nombre_mv);
                         $('#ModalNroReservaMV').val(numero_reserva_mv); 
                         $('#ModalNombreCliente').val(nombre_cliente);
                         $('#ModalCelularCliente').val(celular_cliente);
+                        $('#ModalNombreidFP').val(id_fp);
                         $('#ModalNombreFP').val(nombre_fp);
                         $('#ModalFechaPago').val(fecha_pago);
                         $('#ModalTotalAPagar').val(total_a_pagar);
@@ -276,9 +282,9 @@
                         $('#ModalSaldoPago').val(saldo_pago);
                         $('#ModalConfiguracionCabana').val(configuracion_cabana);
                         $('#ModalSolicitudCabana').val(solicitud_especial_cabana);
-                        $('#ModalEstadoReserva  ').val(estado_reserva);
+                        $('#ModalEstadoReserva').val(estado_reserva);
                     });
             });
             
-            
-              
+                       
+                

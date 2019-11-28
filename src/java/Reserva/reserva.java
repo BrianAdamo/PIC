@@ -20,7 +20,7 @@ public class reserva {
     int id_cabana;
     int cantidad_persona;
     String numero_reserva_interno;
-    int medio_venta;
+    int id_medio_venta;
     String numero_reserva_mv;
     String nombre_cliente;
     String celular_cliente;
@@ -51,7 +51,7 @@ public class reserva {
         this.formadepago = formadepago;
     }
 
-    public reserva(String registro_reserva,String fecha_ingreso, String hora_ingreso, String fecha_Salida, String hora_Salida, int id_cabana, int cantidad_persona, String numero_reserva_interno, int medio_venta, String numero_reserva_mv, String nombre_cliente, String celular_cliente, int id_forma_pago, String fecha_pago, Float total_a_pagar, Float total_pagado, Float saldo_pago, String configuracion_cabana, String solicitud_especial_cabana, String estado_reserva) {
+    public reserva(String registro_reserva,String fecha_ingreso, String hora_ingreso, String fecha_Salida, String hora_Salida, int id_cabana, int cantidad_persona, String numero_reserva_interno, int id_medio_venta, String numero_reserva_mv, String nombre_cliente, String celular_cliente, int id_forma_pago, String fecha_pago, Float total_a_pagar, Float total_pagado, Float saldo_pago, String configuracion_cabana, String solicitud_especial_cabana, String estado_reserva) {
         this.registro_reserva = registro_reserva;
         this.fecha_ingreso = fecha_ingreso;
         this.hora_ingreso = hora_ingreso;
@@ -60,7 +60,7 @@ public class reserva {
         this.id_cabana = id_cabana;
         this.cantidad_persona = cantidad_persona;
         this.numero_reserva_interno = numero_reserva_interno;
-        this.medio_venta = medio_venta;
+        this.id_medio_venta = id_medio_venta;
         this.numero_reserva_mv = numero_reserva_mv;
         this.nombre_cliente = nombre_cliente;
         this.celular_cliente = celular_cliente;
@@ -158,13 +158,15 @@ public class reserva {
         this.numero_reserva_interno = numero_reserva_interno;
     }
 
-    public int getMedio_venta() {
-        return medio_venta;
+    public int getId_medio_venta() {
+        return id_medio_venta;
     }
 
-    public void setMedio_venta(int medio_venta) {
-        this.medio_venta = medio_venta;
+    public void setId_medio_venta(int id_medio_venta) {
+        this.id_medio_venta = id_medio_venta;
     }
+
+    
 
     public String getNumero_reserva_mv() {
         return numero_reserva_mv;

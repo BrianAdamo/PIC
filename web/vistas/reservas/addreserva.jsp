@@ -245,12 +245,12 @@ function ingresoprueba() {
                 <div class="controls">
                     <select name="FormConfiguracion" id="FormConfiguracion" class="input-sm form-control" >
                         <option value="Sin Preferencia" selected="">Sin Preferencia</option>
-                        <option value="1 camakingy2individuales">1 cama king y 2 individuales</option>
-                        <option value="1 camaking,2individualesyfuton">1 cama king, 2 individuales y futon</option>
-                        <option value="2 camasking">2 camas king</option>
-                        <option value="2 camaskingyfuton">2 camas king y futon</option>
-                        <option value="1 camaking">1 cama king</option>
-                        <option value="2 camasindividuales">2 camas individuales</option>
+                        <option value="1 cama king y 2 individuales">1 cama king y 2 individuales</option>
+                        <option value="1 cama king,2 individuales y futon">1 cama king, 2 individuales y futon</option>
+                        <option value="2 camas king">2 camas king</option>
+                        <option value="2 camas king y futon">2 camas king y futon</option>
+                        <option value="1 cama king">1 cama king</option>
+                        <option value="2 camas individuales">2 camas individuales</option>
                     </select>
                 </div>     
         </div>    
@@ -270,7 +270,7 @@ function ingresoprueba() {
             <label for="LabelNombreCabaña" class="control-label">Estado Reserva: </label>
                 <div class="controls">
                     <select name="FormEstadoReserva" id="FormEstadoReserva" class="input-sm form-control" required>
-                        <option value="SinEstado" selected>Sin Estado</option>
+                        <option value="Sin Estado" selected>Sin Estado</option>
                         <option value="Reservada">Reservada</option>
                         <option value="Confirmada">Confirmada</option>
                         <option value="Cancelada(Anulada)">Cancelada(Anulada)</option>
