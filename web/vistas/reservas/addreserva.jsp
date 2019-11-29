@@ -361,7 +361,7 @@ function ingresoprueba() {
                             $('#FormNumeroReservaMV').val(nroreservamvmod);
                         }
                         if(celular === ""){
-                            var celularmod = '569';
+                            var celularmod = '+569';
                             $('#FormCelularCliente').val(celularmod);
                         }
                         if(fechapago === ""){
@@ -373,7 +373,7 @@ function ingresoprueba() {
                             $('#FormSaldo').val(saldomod);
                         }
                         if(configuracioncabaña === ""){
-                            var configuracioncabañamod = '0';
+                            var configuracioncabañamod = 'Sin Preferencia';
                             $('#FormConfiguracion').val(configuracioncabañamod);
                         }
                         if(solicitudespecial === ""){
