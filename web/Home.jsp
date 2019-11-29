@@ -23,8 +23,11 @@
     <link rel="stylesheet" href="css/sw2css.css">
      
     
-    <!-- Datatables -->
+    <!-- Datatables 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.css"/>
+    -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.css"/>
+
     <!-- Datatables -->
     
     
@@ -48,21 +51,21 @@
             <li class="nav-item">
               <a class="nav-link active" href="Home.jsp?v=home">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Home.jsp?v=reserva">Reservas</a>
-            </li>
-            <li class="nav-item">
-              
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
+                <div class="dropdown-menu"> 
+                    <a class="nav-link" href="Home.jsp?v=reserva">Maestro Reservas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="nav-link" href="Home.jsp?v=repres">Reporte Aseo</a>
+                    <a class="nav-link" href="Home.jsp?v=represall">Total reservas</a>          
+                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenedores</a>
                 <div class="dropdown-menu"> 
                   <a class="nav-link" href="Home.jsp?v=cab">Cabañas</a>
                   <a class="nav-link" href="Home.jsp?v=fp">Forma de Pagos</a>
-                  <a class="nav-link" href="Home.jsp?v=mv">Medio Venta</a>
-                  <a class="nav-link" href="Home.jsp?v=repres">Reporte Reservas Aseo</a>
-                  <a class="nav-link" href="Home.jsp?v=represall">Reportes Reservas Todas</a>
-                  
+                  <a class="nav-link" href="Home.jsp?v=mv">Medio Venta</a>           
                   <div class="dropdown-divider"></div>
                   <a class="nav-link" href="#">Peticion.</a>
                 </div>
@@ -151,10 +154,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="http://momentjs.com/downloads/moment.min.js"></script>
-    <!-- Datatables  -->
+    
+    <!-- Datatables  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.js"></script>
+    -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.js"></script>
     
     
     

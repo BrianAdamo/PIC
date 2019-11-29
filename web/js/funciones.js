@@ -26,7 +26,7 @@
                         "zeroRecords": "No se encontraron resultados",
                         "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                         "sSearch": "Buscar:",
-                        "sProcessing":"Procesando...",           
+                        "sProcessing":"Procesando..."       
                     },
                 dom: 'Bfrtip',
                 buttons: [ 
@@ -50,8 +50,10 @@
                                             text:      '<i class="fa fa-print"></i> ',
                                             titleAttr: 'Imprimir',
                                             className: 'btn btn-info'
-                                    },
-                            ]     
+                                    }
+                                    
+                            ],
+                            
                     
                     
             });     
