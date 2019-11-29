@@ -60,7 +60,9 @@
                   <a class="nav-link" href="Home.jsp?v=cab">Cabañas</a>
                   <a class="nav-link" href="Home.jsp?v=fp">Forma de Pagos</a>
                   <a class="nav-link" href="Home.jsp?v=mv">Medio Venta</a>
-                  <a class="nav-link" href="Home.jsp?v=repres">Reportes Reservas</a>
+                  <a class="nav-link" href="Home.jsp?v=repres">Reporte Reservas Aseo</a>
+                  <a class="nav-link" href="Home.jsp?v=represall">Reportes Reservas Todas</a>
+                  
                   <div class="dropdown-divider"></div>
                   <a class="nav-link" href="#">Peticion.</a>
                 </div>
@@ -123,9 +125,13 @@
                         break;
                         case "repres": 	    		
                     %>
-                        <%@ include file="vistas/reservas/reportereservas.jsp" %>
+                        <%@ include file="vistas/reservas/reportereservascortas.jsp" %>
                     <%
-
+                        break;
+                        case "represall":
+                     %>
+                        <%@ include file="vistas/reservas/vertodasreservas.jsp" %>
+                    <%
                         }}
                     %>
         </div> 

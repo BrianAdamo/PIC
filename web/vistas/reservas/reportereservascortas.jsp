@@ -4,12 +4,6 @@
 <%@ page import = "Reserva.ConsultaReserva"%> 
 <%@ page import = "java.util.LinkedList"%>
 
-<script>
-
-
-
-</script>
-
 <!-- Table que se puede filtrar y ordenar -->
 <div class="table-responsive">
 <table  id="tablareportereserva" class="table table-striped table-bordered" style="width:100%">
@@ -56,7 +50,7 @@
 
 <!-- Table y Boton de Edicion Completos + Modal Delete,Edit -->
 <div class="table-responsive">
-    <Table  id="tabla" class="table table-bordered table-hover table-sm" >
+    <Table  id="tablareportereserva" class="table table-bordered table-hover table-sm" >
             <thead  class="thead-dark">
                     <tr>  
                             <th hidden>ID</th>
@@ -98,11 +92,6 @@
                             out.println("<td hidden><span id=\"numero_reserva_interno"+listarepres2.get(i).getId_reserva()+"\">"+listarepres2.get(i).getNumero_reserva_interno()+"</span></td>");
                             out.println("<td hidden><span id=\"nombre_mv"+listarepres2.get(i).getId_reserva()+"\">"+listarepres2.get(i).getMediodeventa()+"</span></td>");
                             out.println("<td hidden><span id=\"numero_reserva_mv"+listarepres2.get(i).getId_reserva()+"\">"+listarepres2.get(i).getNumero_reserva_mv()+"</span></td>");
-                            
-                            out.println("<td hidden>"
-                                             + "<button data-id="+listarepres2.get(i).getId_reserva()+ " type=\"button\" class=\"btn btn-primary btn-sm btnVerReserva\"><i class=\"fa fa-eye\" style=\"color:white;\" aria-hidden=\"true\"></i> Edicion</button>"
-                                             + ""
-                                       +"</td>");
                             out.println("<td hidden><span id=\"cliente_reserva"+listarepres2.get(i).getId_reserva()+"\">"+listarepres2.get(i).getCliente_reserva()+"</span></td>");
                             out.println("<td hidden><span id=\"registro_reserva"+listarepres2.get(i).getId_reserva()+"\">"+listarepres2.get(i).getRegistro_reserva()+"</span></td>");
                             out.println("<td hidden><span id=\"fecha_ingreso"+listarepres2.get(i).getId_reserva()+"\">"+listarepres2.get(i).getFecha_ingreso()+"</span></td>");

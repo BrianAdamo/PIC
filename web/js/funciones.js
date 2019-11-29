@@ -40,7 +40,10 @@
                                             extend:    'pdfHtml5',
                                             text:      '<i class="fas fa-file-pdf"></i> ',
                                             titleAttr: 'Exportar a PDF',
-                                            className: 'btn btn-danger'
+                                            className: 'btn btn-danger',
+                                            orientation: 'landscape',
+                                            pageSize: 'A2',
+                                            messageTop: 'PDF creado por BASystems.'
                                     },
                                     {
                                             extend:    'print',
