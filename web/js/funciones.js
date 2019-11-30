@@ -1,5 +1,4 @@
-
-        //DATATABLES BOTONES Y MAS
+//DATATABLES BOTONES Y MAS
         $(document).ready(function() {    
             $('#tabla').DataTable({
                 "info": false,
@@ -131,6 +130,7 @@
                               })
             }
             function EditarR(){
+                
                             Swal.fire({
                                 title: 'Esta seguro de guardar los cambios de esta reserva?',
                                 text: "",
@@ -169,8 +169,8 @@
                     var dos;
                     dos = $('#FormPagado').val();
 
-                    if(dos != ""){
-                      Restar()
+                    if(dos !== ""){
+                      Restar();
                     }
 
                 });
@@ -180,8 +180,8 @@
                     var uno;
                     uno = $('#FormApagar').val();
 
-                    if(dos != ""){
-                      Restar()
+                    if(uno !== ""){
+                      Restar();
                     }
 
                 });
@@ -209,8 +209,8 @@
                     var dos;
                     dos = $('#ModalTotalPagado').val();
 
-                    if(dos != ""){
-                      RestarModal()
+                    if(dos !== ""){
+                      RestarModal();
                     }
 
                 });
@@ -220,8 +220,8 @@
                     var uno;
                     uno = $('#ModalTotalAPagar').val();
 
-                    if(dos != ""){
-                      RestarModal()
+                    if(uno !== ""){
+                      RestarModal();
                     }
 
                 });

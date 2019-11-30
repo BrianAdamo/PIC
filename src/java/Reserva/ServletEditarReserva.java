@@ -40,7 +40,7 @@ public class ServletEditarReserva extends HttpServlet {
             
             //Edicion de Reserva
             //Leer todos los datos del modal y guardarlos en variables
-                int id= Integer.parseInt(request.getParameter("ModalIdReserva"));
+                int id_reserva= Integer.parseInt(request.getParameter("ModalIdReserva"));
                 String FechaRegistro= request.getParameter("ModalFechaRegistroReserva");
                 String FechaClienteReserva= request.getParameter("ModalFechaClienteReserva");
                 String FechaIngreso= request.getParameter("ModalFechaIngresoReserva");
@@ -68,29 +68,28 @@ public class ServletEditarReserva extends HttpServlet {
                 // Llamada al procedimiento almacenado
                 CallableStatement cst = cn.prepareCall("{CALL EditarReserva (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
                 // Parametro 1 del procedimiento almacenado
-                cst.setInt(1, id);
-                cst.setString(2, FechaRegistro);
-                cst.setString(3, FechaIngreso);
-                cst.setString(4, HoraIngreso);
-                cst.setString(5, FechaSalida);
-                cst.setString(6, HoraSalida);
-                cst.setInt(7, NombreCabana);
-                cst.setInt(8, NumeroPersona);
-                cst.setString(9, NumeroReservaInterno);
-                cst.setInt(10, MV);
-                cst.setString(11, NumeroReservaMV);
-                cst.setString(12, NombreCliente);
-                cst.setString(13, CelularCliente);
-                cst.setInt(14, FormadePago);
-                cst.setString(15, FechaPago); 
-                cst.setDouble(16, Apagar);
-                cst.setDouble(17, Pagado);
-                cst.setDouble(18, Saldo);
-                cst.setString(19, Configuracion);
-                cst.setString(20, Solicitud);
-                cst.setString(21, FechaClienteReserva);
-                cst.setString(22, EstadoReserva);
-                
+                cst.setString(1, FechaRegistro);
+                cst.setString(2, FechaIngreso);
+                cst.setString(3, HoraIngreso);
+                cst.setString(4, FechaSalida);
+                cst.setString(5, HoraSalida);
+                cst.setInt(6, NombreCabana);
+                cst.setInt(7, NumeroPersona);
+                cst.setString(8, NumeroReservaInterno);
+                cst.setInt(9, MV);
+                cst.setString(10, NumeroReservaMV);
+                cst.setString(11, NombreCliente);
+                cst.setString(12, CelularCliente);
+                cst.setInt(13, FormadePago);
+                cst.setString(14, FechaPago); 
+                cst.setDouble(15, Apagar);
+                cst.setDouble(16, Pagado);
+                cst.setDouble(17, Saldo);
+                cst.setString(18, Configuracion);
+                cst.setString(19, Solicitud);
+                cst.setString(20, FechaClienteReserva);
+                cst.setString(21, EstadoReserva);
+                cst.setInt(22, id_reserva);
                 // Definimos los tipos de los parametros de salida del procedimiento almacenado
                 cst.registerOutParameter(23, java.sql.Types.VARCHAR);
                 

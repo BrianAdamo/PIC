@@ -104,7 +104,10 @@
                         </script>
                         
                         <center><div id="reloj" style="font-size:70px;"></div> </center>
-                                    <%
+                        
+                        
+                        
+                    <%
                         break;
                         case "reserva": 	    		
                     %>

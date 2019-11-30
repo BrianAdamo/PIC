@@ -397,16 +397,16 @@
                      
                     <div class="modal-footer col-md-12" style="Color:#FFFFFF; Background-color: #343A40">
                         <div class="col-md-6">
-                        <button type="button" style="float: left;" class="btn btn-warning fa fa-pencil btnEditarReserva" onclick="EditarR()"> Editar</button>
-                        <!--<button type="button" style="float: left;" class="btn btn-danger fa fa-trash btnEliminarReserva" onclick="javascript:IrAServletUsandoPost('ServletEliminarReserva');"> Eliminar</button>-->
-                        <button type="button" style="float: left;" class="btn btn-danger fa fa-trash btnEliminarReserva" onclick="EliminarR()"> Eliminar</button>
+                        <button type="button" style="float: left;" class="btn btn-warning fa fa-pencil btnEditarReserva" onclick="EditarR();"> Editar R</button>
+                        <!--<button type="button" style="float: left;" class="btn btn-warning fa fa-pencil" onclick="javascript:IrAServletUsandoPost('ServletEditarReserva');"> Editar Directo</button>--> 
+                        <button type="button" style="float: left;" class="btn btn-danger fa fa-trash btnEliminarReserva" onclick="EliminarR();"> Eliminar</button>
                         
                         </div>
                         <div class="col-md-2">
                             
                         </div>
                         <div class="col-md-4">
-                        <button type="button" class="btn btn-light fa fa-ban" data-dismiss="modal"> Cancelar</button>    
+                        <button type="button" class="btn btn-light fa fa-ban" data-dismiss="modal">Cancelar</button>    
                         </div>
                       
                     </div>

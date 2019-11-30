@@ -26,7 +26,7 @@ public class ConsultaReserva {
             Connection con = ConexionMYSQL.getConnection();
             
             //Arma la consulta y la ejecuta
-            String Consulta = "SELECT id_reserva,registro_reserva,fecha_ingreso,hora_ingreso,fecha_salida,hora_salida,id_cabana,nombre_cabana,cantidad_personas,numero_reserva_interno,id_medio_venta,nombre_mv,numero_reserva_mv,nombre_cliente,celular_cliente,id_forma_pago,nombre_fp,fecha_pago,total_a_pagar,total_pagado,saldo_pago,configuracion_cabana,solicitud_especial_cabana,cliente_reserva,estado_reserva\n" +
+            String Consulta = "SELECT id_res,registro_reserva,fecha_ingreso,hora_ingreso,fecha_salida,hora_salida,id_cabana,nombre_cabana,cantidad_personas,numero_reserva_interno,id_medio_venta,nombre_mv,numero_reserva_mv,nombre_cliente,celular_cliente,id_forma_pago,nombre_fp,fecha_pago,total_a_pagar,total_pagado,saldo_pago,configuracion_cabana,solicitud_especial_cabana,cliente_reserva,estado_reserva\n" +
                                 "FROM reservas r \n" +
                                 "inner join cabanas c \n" +
                                 "on r.id_cabana = c.id_cab\n" +
@@ -40,7 +40,7 @@ public class ConsultaReserva {
             while (rs.next())
             {
                 reserva res = new reserva();
-                res.setId_reserva(rs.getInt("Id_reserva"));
+                res.setId_reserva(rs.getInt("id_res"));
                 res.setRegistro_reserva(rs.getString("registro_reserva"));
                 res.setFecha_ingreso(rs.getString("fecha_ingreso"));
                 res.setHora_ingreso(rs.getString("hora_ingreso"));
